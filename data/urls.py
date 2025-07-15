@@ -1,0 +1,7 @@
+MAIN_URL = 'https://stellarburgers.nomoreparties.site/'
+FEED_URL = 'https://stellarburgers.nomoreparties.site/feed'
+LOGIN_URL = 'https://stellarburgers.nomoreparties.site/login'
+RECOVER_URL = 'https://stellarburgers.nomoreparties.site/forgot-password'
+RESET_URL = 'https://stellarburgers.nomoreparties.site/reset-password'
+ACCOUNT_URL = 'https://stellarburgers.nomoreparties.site/account/profile'
+ORDER_HISTORY_URL = 'https://stellarburgers.nomoreparties.site/account/order-history'
