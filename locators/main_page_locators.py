@@ -16,3 +16,5 @@ class MainPageLocators:
     BUN_IN_ORDER = (By.XPATH, "//span[contains(text(), 'Флюоресцентная булка R2-D3 (верх)')]")
     ORDER_BTN = (By.XPATH, "//button[contains(text(), 'Оформить заказ')]")
     ORDER_READY_DIV = (By.XPATH, "//div[@class='Modal_modal__P3_V5']")
+    OVERLAYING_ELEMENT = (By.XPATH, "//*[contains(@class,  'Modal_modal__loading')]"
+                                    "/following::div[@class='Modal_modal_overlay__x2ZCr']")
