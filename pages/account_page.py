@@ -1,22 +1,17 @@
-from allure import step
-
 from locators.account_page_locators import AccountPageLocators
-from locators.login_page_locators import LoginPageLocators
 from pages.base_page import BasePage
-from pages.main_page import MainPage
 
 
 class AccountPage(BasePage):
-    def __init__(self, driver):
-        super().__init__(driver)
-
-        page = MainPage(driver)
-        page.click_to_account()
+    @step('Переходим в личный кабинет')
+    def check_account_page_open(self):
+        self.click_element(AccountPageLocators.ACCOUNT_LINK)
+        self.wait_for_clickable_element(AccountPageLocators.PROFILE_BUTTON)
 
     @step("Логаут пользователя")
     def logout(self):
         self.click_element(AccountPageLocators.LOGOUT_LINK)
-        self.wait_for_clickable_element(LoginPageLocators.ENTER_BTN)
+        self.wait_for_clickable_element(AccountPageLocators.ENTER_FORM)
 
     @step("Перейти в историю заказов")
     def click_to_orders(self):
