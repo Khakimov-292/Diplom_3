@@ -13,6 +13,11 @@ class MainPage(BasePage):
         self.go_to_url(urls.MAIN_URL)
         self.wait_for_clickable_element(MainPageLocators.ROOT_FIELD)
 
+    @step("Перейти в конструктор")
+    def click_to_constructor(self):
+        self.click_element(MainPageLocators.CONSTRUCTOR_LINK)
+        self.wait_for_clickable_element(MainPageLocators.ROOT_FIELD)
+
     @step("Перейти в личный кабинет")
     def click_to_account(self):
         self.wait_for_clickable_element(MainPageLocators.ACCOUNT_LINK)
@@ -37,8 +42,8 @@ class MainPage(BasePage):
 
     @step("Добавление булочки в заказ")
     def add_buns_to_order(self):
-        drag = self.find_element(MainPageLocators.FIRST_BUN_LINK)
-        drop = self.find_element(MainPageLocators.RESULT_ORDER)
+        drag = self.find_elements(MainPageLocators.FIRST_BUN_LINK)
+        drop = self.find_elements(MainPageLocators.RESULT_ORDER)
         self.drag_and_drop(drag, drop)
         self.wait_for_load_element(MainPageLocators.BUN_IN_ORDER)
 
@@ -54,7 +59,7 @@ class MainPage(BasePage):
         return int(counters[0].text)
 
     def is_modal_closed(self):
-        el = self.find_element(MainPageLocators.MODAL_SECTION)
+        el = self.find_elements(MainPageLocators.MODAL_SECTION)
         return "Modal_modal_opened__3ISw4" not in el.get_attribute("class")
 
     def is_order_accepted(self):
