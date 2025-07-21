@@ -10,28 +10,24 @@ class TestAccountPage:
     def test_account_link(self, driver, user):
         login_page = LoginPage(driver)
         login_page.login(user["email"], user["password"])
-
-        page = MainPage(driver)
-        page.click_to_account()
+        main_page = MainPage(driver)
+        main_page.click_to_account()
         assert driver.current_url == urls.ACCOUNT_URL
 
     @title("Переход в историю заказов")
     def test_order_history(self, driver, user):
         login_page = LoginPage(driver)
         login_page.login(user["email"], user["password"])
-
-        page = MainPage(driver)
-        page.click_to_account()
-
-        page = AccountPage(driver)
-        page.click_to_orders()
+        main_page = MainPage(driver)
+        main_page.click_to_account()
+        account_page = AccountPage(driver)
+        account_page.click_to_orders()
         assert driver.current_url == urls.ORDER_HISTORY_URL
 
     @title("Выход из системы")
     def test_logout(self, driver, user):
         login_page = LoginPage(driver)
         login_page.login(user["email"], user["password"])
-
-        page = AccountPage(driver)
-        page.logout()
+        account_page = AccountPage(driver)
+        account_page.logout()
         assert driver.current_url == urls.LOGIN_URL
