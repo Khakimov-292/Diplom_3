@@ -32,7 +32,7 @@ class FeedPage(BasePage):
     def is_order_exist(self, number):
         locator = f"//p[contains(text(), '{number}')]"
         try:
-            self.find_element((By.XPATH, locator))
+            self.find_elements((By.XPATH, locator))
         except NoSuchElementException:
             return False
         return True
