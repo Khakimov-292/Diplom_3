@@ -36,3 +36,7 @@ class RecoverPage(BasePage):
         self.click_element(RecoverPageLocators.SHOW_PASSWORD_BTN)
         element_class = self.get_attribute_class(RecoverPageLocators.RECOVER_BTN)
         return element_class
+
+    @step("Проверка адресов ссылок")
+    def is_current_url(self, expected_url):
+        self.check_current_url(expected_url)
