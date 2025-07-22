@@ -12,7 +12,7 @@ class TestAccountPage:
         login_page.login(user["email"], user["password"])
         main_page = MainPage(driver)
         main_page.click_to_account()
-        assert driver.current_url == urls.ACCOUNT_URL
+        assert main_page.is_current_url(urls.ACCOUNT_URL)
 
     @title("Переход в историю заказов")
     def test_order_history(self, driver, user):
@@ -22,7 +22,7 @@ class TestAccountPage:
         main_page.click_to_account()
         account_page = AccountPage(driver)
         account_page.click_to_orders()
-        assert driver.current_url == urls.ORDER_HISTORY_URL
+        assert account_page.current_url(urls.ORDER_HISTORY_URL)
 
     @title("Выход из системы")
     def test_logout(self, driver, user):
@@ -30,4 +30,4 @@ class TestAccountPage:
         login_page.login(user["email"], user["password"])
         account_page = AccountPage(driver)
         account_page.logout()
-        assert driver.current_url == urls.LOGIN_URL
+        assert account_page.current_url(urls.LOGIN_URL)
