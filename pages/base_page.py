@@ -43,3 +43,6 @@ class BasePage:
         self.wait.until(expected_conditions.invisibility_of_element_located(MainPageLocators.OVERLAYING_ELEMENT))
         element_class = self.find_elements(locator).get_attribute('class')
         return element_class
+
+    def check_current_url(self, expected_url):
+        return self.driver.current_url == expected_url
