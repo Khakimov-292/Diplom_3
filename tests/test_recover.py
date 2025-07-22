@@ -12,7 +12,7 @@ class TestRecoverPage:
     def test_recover_link(self, driver):
         page = LoginPage(driver)
         page.open_password_recovery()
-        assert driver.current_url == urls.RECOVER_URL
+        assert page.is_current_url(urls.RECOVER_URL)
 
     @title("Ввод почты и клик по кнопке «Восстановить»")
     def test_request_password_recover(self, driver):
@@ -20,7 +20,7 @@ class TestRecoverPage:
         email = generate_email()
         page.enter_email(email)
         page.click_to_recover()
-        assert driver.current_url == urls.RESET_URL
+        assert page.is_current_url(urls.RESET_URL)
 
     @title("Показать/скрыть пароль")
     def test_click_the_show_hidden_button_field_active(self, driver):
