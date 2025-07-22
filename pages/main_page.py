@@ -1,6 +1,4 @@
 from allure import step
-
-from locators.account_page_locators import AccountPageLocators
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 from data import urls
@@ -22,7 +20,11 @@ class MainPage(BasePage):
     def click_to_account(self):
         self.wait_for_clickable_element(MainPageLocators.ACCOUNT_LINK)
         self.click_element(MainPageLocators.ACCOUNT_LINK)
-        self.wait_for_load_element(AccountPageLocators.LOGOUT_LINK)
+        self.wait_for_load_element(MainPageLocators.OUT_LINK)
+
+    @step("Получение текущего адреса ссылки")
+    def get_current_url(self):
+        return self.driver.current_url
 
     @step("Перейти в ленту заказов")
     def click_to_orders_feed(self):
@@ -39,6 +41,10 @@ class MainPage(BasePage):
     @step("Закрыть окно ингредиента")
     def close_ingredient_modal(self):
         self.click_element(MainPageLocators.CLOSE_MODAL_BTN)
+
+    @step("Проверка адресов ссылок")
+    def is_current_url(self, expected_url):
+        self.check_current_url(expected_url)
 
     @step("Добавление булочки в заказ")
     def add_buns_to_order(self):
