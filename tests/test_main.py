@@ -9,19 +9,19 @@ class TestMainFunctionality:
     def test_constructor_link(self, driver):
         page = MainPage(driver)
         page.click_to_constructor()
-        assert driver.current_url == urls.MAIN_URL
+        assert page.is_current_url(urls.MAIN_URL)
 
     @title("Переход в ленту заказов")
     def test_orders_feed(self, driver):
         page = MainPage(driver)
         page.click_to_orders_feed()
-        assert driver.current_url == urls.FEED_URL
+        assert page.is_current_url(urls.FEED_URL)
 
     @title("Открыть всплывающее окно ингредиентов")
     def test_ingredient_modal(self, driver):
         page = MainPage(driver)
         page.click_to_first_ingredient()
-        assert "ingredient" in driver.current_url
+        assert "ingredient" in page.get_current_url()
 
     @title("Закрыть всплывающее окно")
     def test_close_modal(self, driver):
