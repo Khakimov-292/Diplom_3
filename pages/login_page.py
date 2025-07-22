@@ -17,6 +17,10 @@ class LoginPage(BasePage):
         self.click_element(LoginPageLocators.RECOVER_LINK)
         self.wait_for_load_element(LoginPageLocators.RECOVER_BUTTON)
 
+    @step("Проверка адресов ссылок")
+    def is_current_url(self, expected_url):
+        self.check_current_url(expected_url)
+
     @step("Логин пользователя")
     def login(self, email, password):
         self.input_to_element(LoginPageLocators.EMAIL_INPUT, email)
