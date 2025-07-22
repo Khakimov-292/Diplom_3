@@ -8,6 +8,7 @@ class MainPageLocators:
     CONSTRUCTOR_LINK = (By.XPATH, "//p[contains(text(), 'Конструктор')]")
     ORDERS_FEED_LINK = (By.XPATH, "//a[@href='/feed']")
     ORDERS_FEED_HEADER = (By.XPATH, "//h1[contains(text(), 'Лента заказов')]")
+    OUT_LINK = (By.XPATH, "//button[contains(text(), 'Выход')]")
     INGREDIENT_DETAIL_HEADER = (By.XPATH, "//h2[contains(text(), 'Детали ингредиента')]")
     CLOSE_MODAL_BTN = (By.XPATH, "//button[@class='Modal_modal__close_modified__3V5XS Modal_modal__close__TnseK']")
     MODAL_SECTION = (By.XPATH, "//section[contains(@class, 'Modal_modal__P3_V5')]")
