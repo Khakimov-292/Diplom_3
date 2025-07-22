@@ -1,7 +1,6 @@
 from allure import step
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-
 from locators.feed_page_locators import FeedPageLocators
 from pages.base_page import BasePage
 from data import urls
@@ -30,9 +29,9 @@ class FeedPage(BasePage):
 
     @step("Пробуем найти заказ на странице")
     def is_order_exist(self, number):
-        locator = f"//p[contains(text(), '{number}')]"
+        locator = FeedPageLocators.ORDER_BY_NUMBER.format(number)
         try:
-            self.find_elements((By.XPATH, locator))
+            self.find_elements(locator)
         except NoSuchElementException:
             return False
         return True
