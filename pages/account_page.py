@@ -13,8 +13,6 @@ class AccountPage(BasePage):
         self.click_element(AccountPageLocators.LOGOUT_LINK)
         self.wait_for_clickable_element(AccountPageLocators.ENTER_FORM)
 
-    @step()
-
     @step("Перейти в историю заказов")
     def click_to_orders(self):
         self.click_element(AccountPageLocators.ORDERS_LINK)
